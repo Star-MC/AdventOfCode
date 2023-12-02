@@ -14,6 +14,14 @@ def checkLine01(line):
     return int(line[line.find(" ") + 1:line.find(":")])
 print("Problem 01: " + str(sum([checkLine01(line) for line in input])))
 
+# Problem 01 Condensed
+def checkLine01(line):
+    for pulls in [pull.split(", ") for pull in [data.strip() for data in line[line.find(":") + 1:].split(";")]]:
+        for key, value in {pull[0]: pull[1] for pull in [[pull[pull.find(" ") + 1:], pull[0:pull.find(" ")]] for pull in pulls]}.items():
+            if int(value) > {"red": 12, "green": 13, "blue": 14}[key]: return 0
+    return int(line[line.find(" ") + 1:line.find(":")])
+print("Problem 01 Condensed: " + str(sum([checkLine01(line) for line in input])))
+
 # Problem 02
 def checkLine02(line):
     maxValues = {"red": 0, "green": 0, "blue": 0}
