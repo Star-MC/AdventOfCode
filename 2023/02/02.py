@@ -15,7 +15,7 @@ def checkLine01(line):
 print("Problem 01: " + str(sum([checkLine01(line) for line in input])))
 
 # Problem 02
-def checkLine01(line):
+def checkLine02(line):
     maxValues = {"red": 0, "green": 0, "blue": 0}
     for pulls in [pull.split(", ") for pull in [data.strip() for data in line[line.find(":") + 1:].split(";")]]:
         for pull in pulls:
@@ -24,4 +24,4 @@ def checkLine01(line):
             color = pull[firstSpace + 1:]
             if value > maxValues[color]: maxValues[color] = value
     return prod(maxValues.values())
-print("Problem 02: " + str(sum([checkLine01(line) for line in input])))
+print("Problem 02: " + str(sum([checkLine02(line) for line in input])))
